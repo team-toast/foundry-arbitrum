@@ -5,5 +5,5 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract aFRY is ERC20 {
-  constructor() ERC20("aFRY", "aFRY") {}
+  constructor() ERC20("Arbitrum FRY", "aFRY") {}
 }
