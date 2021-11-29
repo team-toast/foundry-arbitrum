@@ -26,7 +26,7 @@ contract("aFry", (accounts) => {
   it("Should be able to burn", async () => {
     const aFryContract = await aFry.new();
     await aFryContract.mint(accounts[0], "100");
-    await aFryContract.burn(accounts[0], "50");
+    await aFryContract.burn("50");
     const supply = await aFryContract.totalSupply();
     //console.log("Total Supply: ", supply);
     console.log("CONTRACT METHODS: ", aFryContract.methods);

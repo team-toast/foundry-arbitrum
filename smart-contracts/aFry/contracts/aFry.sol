@@ -1,18 +1,12 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.5.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
+import "@openzeppelin/contracts/GSN/Context.sol";
 
-contract aFRY is ERC20, Ownable {
-  constructor() ERC20("Arbitrum FRY", "aFRY") {}
-
-  function mint(address account, uint256 amount) public onlyOwner {
-    _mint(account, amount);
-  }
-
-  function burn(address account, uint256 amount) public {
-    _burn(account, amount);
-  }
+contract aFRY is Context, ERC20Detailed, ERC20Mintable, ERC20Burnable {
+  constructor() public ERC20Detailed("Arbitrum FRY", "aFRY", 18) {}
 }
