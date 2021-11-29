@@ -2,6 +2,7 @@
   "name": "foundry-arbitrum",
   "version": "0.0.1",
   "dependencies": {
+    "@openzeppelin/contracts": "4.4.0",
     "truffle": "^5.4.22"
   },
   "devDependencies": {
