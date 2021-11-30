@@ -15,7 +15,7 @@
     "npmCD": "\"cd ./smart-contracts/aFry/\"",
     "npmPWD": "\"pwd\"",
     "migrate": "cd ./smart-contracts/aFry/ && rm -rf build && truffle migrate --reset --compile-all --network development",
-    "test": "concurrently \"npm run ganache\" cd ./smart-contracts/aFry/ && truffle test"
+    "test": "concurrently cd ./smart-contracts/aFry/ && truffle test"
   },
   "config": {
     "ganache": {
