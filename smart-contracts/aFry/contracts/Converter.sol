@@ -8,8 +8,6 @@ contract Converter
     using SafeMath for uint256;
     FRY public fryInstance;
     aFRY public aFryInstance;
-    uint sellEnabled;
-    address owner;
 
     constructor(FRY _fryInstance, aFRY _gFryInstance) 
         public 
