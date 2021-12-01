@@ -13,11 +13,11 @@ contract Converter
     event Wrap(uint indexed _amount);
     event Unwrap(uint indexed _amount);
 
-    constructor(FRY _fryInstance, aFRY _gFryInstance) 
+    constructor(FRY _fryInstance, aFRY _aFryInstance) 
         public 
     {
         fryInstance = _fryInstance;
-        aFryInstance = _gFryInstance;
+        aFryInstance = _aFryInstance;
 
         emit Deployed(address(fryInstance), address(aFryInstance));
     }
