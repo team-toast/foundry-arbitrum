@@ -9,23 +9,31 @@ contract Converter
     FRY public fryInstance;
     aFRY public aFryInstance;
 
+    event Deployed(address indexed _fryAddress, address indexed _aFryAddress);
+    event Wrap(uint indexed _amount);
+    event Unwrap(uint indexed _amount);
+
     constructor(FRY _fryInstance, aFRY _gFryInstance) 
         public 
     {
         fryInstance = _fryInstance;
         aFryInstance = _gFryInstance;
+
+        emit Deployed(address(fryInstance), address(aFryInstance));
     }
 
     function wrap(uint _amount)
         external 
     {
-        require(fryInstance.balanceOf(msg.sender) >= _amount, "User aFRY balance too low");
+        require(fryInstance.balanceOf(msg.sender) >= _amount, "User FRY balance too low");
 
         bool fryTransferSuccess = fryInstance.transferFrom(msg.sender, address(this), _amount);
         require(fryTransferSuccess, "FRY receive failed");
 
         bool aFryMintSuccess = aFryInstance.mint(msg.sender, _amount);
         require(aFryMintSuccess, "Mint failed");
+
+        emit Wrap(_amount);
     }
 
     function unwrap(uint _amount)
@@ -40,6 +48,8 @@ contract Converter
 
         bool fryTransferSuccess = fryInstance.transfer(msg.sender, _amount);
         require(fryTransferSuccess, "FRY Transfer failed");
+
+        emit Unwrap(_amount);
     }
 
 }
