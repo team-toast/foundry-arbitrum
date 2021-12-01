@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "dependencies": {
     "@openzeppelin/contracts": "^2.5.0",
-    "truffle": "^5.4.22"
+    "truffle": "^5.4.22",
+    "truffle-flattener": "^1.5.0"
   },
   "devDependencies": {
     "concurrently": "^6.4.0",
